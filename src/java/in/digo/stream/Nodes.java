@@ -33,4 +33,12 @@ public class Nodes {
     public Stream<String> names() {
         return stream().map(Node::getNodeName);
     }
+
+    public Stream<Element> elements() {
+        return stream().filter(n -> n.getNodeType() == Node.ELEMENT_NODE);
+    }
+
+    public Stream<Node> named(String name) {
+        return stream().filter(n -> n.getNodeName().equals(name));
+    }
 }
